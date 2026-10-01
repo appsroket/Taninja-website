@@ -16,6 +16,8 @@ export const metadata: Metadata = {
     description: "Buying, selling, or renting in New Jersey? Get a real person in your corner from the first call to the keys.",
     type: "website",
   },
+  // Keep the demo out of Google until it's live on her own domain.
+  robots: process.env.NEXT_PUBLIC_SITE_URL ? { index: true, follow: true } : { index: false, follow: false },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

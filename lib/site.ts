@@ -1,3 +1,10 @@
+// Real domain once she has one; otherwise the Vercel production URL, then localhost.
+function siteUrl() {
+  if (process.env.NEXT_PUBLIC_SITE_URL) return process.env.NEXT_PUBLIC_SITE_URL;
+  if (process.env.VERCEL_PROJECT_PRODUCTION_URL) return `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`;
+  return "http://localhost:3000";
+}
+
 export const site = {
   name: "Taniaja Turner",
   firstName: "Taniaja",
@@ -15,7 +22,7 @@ export const site = {
     zip: "07016",
   },
   linkedin: "https://www.linkedin.com/in/ACoAAGuSIz4BZ5wDiiYjQumS8NpPBsxoDugETHU",
-  url: "https://taniajaturner.com",
+  url: siteUrl(),
   // Drop her headshot in /public (e.g. /taniaja.jpg) and set the path here.
   photo: "",
 };
